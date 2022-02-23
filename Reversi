@@ -1,0 +1,40 @@
+import java.awt.*;
+import javax.swing.*;
+ 
+public class Reversi extends JPanel {
+    // コンストラクタ（初期化処理）
+    public Reversi() {
+        setPreferredSize(new Dimension(500,550));
+    }
+    // 画面描画
+    public void paintComponent(Graphics g) {
+        // 背景
+        g.setColor(Color.green);
+        g.fillRect(0, 0, 500, 550);
+        // 横線
+        g.setColor(Color.black);
+        for (int y = 100; y <= 500; y=y+50) {
+            g.drawLine( 50, y, 450, y);
+        }
+        // 縦線
+        g.drawLine( 50, 100,  50, 500);
+        g.drawLine(100, 100, 100, 500);
+        g.drawLine(150, 100, 150, 500);
+        g.drawLine(200, 100, 200, 500);
+        g.drawLine(250, 100, 250, 500);
+        g.drawLine(300, 100, 300, 500);
+        g.drawLine(350, 100, 350, 500);
+        g.drawLine(400, 100, 400, 500);
+        g.drawLine(450, 100, 450, 500);
+    }
+    // 起動
+    public static void main(String[] args) {
+        JFrame f = new JFrame();
+        f.getContentPane().setLayout(new FlowLayout());
+        f.getContentPane().add(new Reversi());
+        f.pack();
+        f.setResizable(false);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
+    }
+}
